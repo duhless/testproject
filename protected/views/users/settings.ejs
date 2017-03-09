@@ -1,0 +1,64 @@
+<% layout('../layout') -%>
+
+<% if(!user.emailConfirmed) { %>
+	<div class="alert alert-danger">Подтвердите E-mail!</div>
+<% } %>
+
+<input id="fileupload" type="file" name="files">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.5.7/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.5.7/jquery.fileupload.js"></script>
+<script>$('#fileupload').fileupload({ 
+	dataType: 'json',
+	url: '/user/settings/avatar?_csrf=<%= csrfToken %>',
+	add: function (e, data) {
+        data.submit();
+    }
+})</script>
+
+<form method="post" action="/user/settings">
+	<input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+	<div class="form-group">
+		<label for="firstName">Имя</label>
+		<input type="text" name="firstName" id="firstName" class="form-control" maxlength="50" <% if(user.firstName) { %>value="<%= user.firstName %>"<% } %> />
+	</div>
+	<div class="form-group">
+		<label for="lastName">Фамилия</label>
+		<input type="text" name="lastName" id="lastName" class="form-control" maxlength="50" <% if(user.lastName) { %>value="<%= user.lastName %>"<% } %> />
+	</div>
+	<div class="form-group">
+		<label for="nickname">Никнейм</label>
+		<input type="text" name="username" id="username" class="form-control" maxlength="50" <% if(user.username) { %>value="<%= user.username %>"<% } %> />
+	</div>
+	<div class="form-group">
+		<label for="email">E-mail</label>
+		<input type="email" name="email" id="email" class="form-control" maxlength="50" <% if(user.email) { %>value="<%= user.email %>"<% } %> />
+	</div>
+	<div class="form-group">
+		<label for="gender">Пол</label>
+		<select name="gender" id="gender" class="form-control">
+			<option>- Не выбран -</option>
+			<option value="male" <%= (user.gender=='male') ? 'selected' : '' %>>Мужской</option>
+			<option value="female" <%= (user.gender=='female') ? 'selected' : '' %>>Женский</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="country">Страна</label>
+		<select name="country" id="country" class="form-control">
+			<option>- Не выбран -</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="city">Город</label>
+		<select name="city" id="city" class="form-control">
+			<option>- Не выбран -</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<label for="profession">Профессия</label>
+		<input type="text" name="profession" id="profession" class="form-control" maxlength="50" <% if(user.profession) { %>value="<%= user.profession %>"<% } %> />
+	</div>
+	<button type="submit" class="btn btn-warning">Изменить</button>
+</form>

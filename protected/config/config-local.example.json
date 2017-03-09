@@ -1,0 +1,18 @@
+{
+  "port": 8161,
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "project",
+    "sessStore": "sessions",
+    "mongo": "mongodb://localhost:27017/project",
+    "sessionsStore": "mongodb://localhost:27017/project/sessions"
+  },
+  "mongo": "mongodb://localhost:27017/project",
+  "logsPath": "../../logs/",
+  "sessionsStore": "mongodb://localhost:27017/project/sessions",
+  "redis": {
+    "host": "localhost",
+    "port": 6379
+  }
+}

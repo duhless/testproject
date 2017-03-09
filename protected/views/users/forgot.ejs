@@ -1,0 +1,10 @@
+<% layout('../layout') -%>
+
+<form method="post" action="/user/forgot">
+	<input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+	<div class="form-group">
+		<label for="email">E-mail</label>
+		<input type="text" name="email" id="email" class="form-control" maxlength="50" />
+	</div>
+	<button type="submit" class="btn btn-warning">Восстановить</button>
+</form>

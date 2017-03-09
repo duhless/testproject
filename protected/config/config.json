@@ -1,0 +1,24 @@
+{
+  "cookie": {
+    "name": "session",
+    "secret": "XVOJoJT-OLsAwby"
+  },
+  "i18n": {
+    "locales": ["ru", "ua", "en"],
+    "defaultLocale": "ru",
+    "cookie": "i18n",
+    "directory": "protected/config/locales",
+    "updateFiles": false,
+    "indent": "\t"
+  },
+  "mailer": {
+    "from": "",
+    "transport": {
+      "service": "Yandex",
+      "auth": {
+        "user": "",
+        "pass": ""
+      }
+    }
+  }
+}

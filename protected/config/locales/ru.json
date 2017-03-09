@@ -1,0 +1,5 @@
+{
+  "e-mail is not available": "Этот email уже используется",
+  "user with this email address not exist": "Пользователь с таким email не существует",
+  "wrong password": "Неправильный пароль"
+}
